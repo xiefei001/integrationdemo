@@ -9,14 +9,12 @@
        http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
 	   http://www.springframework.org/schema/integration/stream http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd">
 
-    <int-stream:stdin-channel-adapter id="producer" channel="messageChannel_2"/>
+    <int-stream:stdin-channel-adapter id="producer" channel="messageChannel_2" />
+    <int-stream:stdout-channel-adapter id="consumer" channel="messageChannel_2" append-newline="true" />
 
-    <int-stream:stdout-channel-adapter id="consumer1" channel="messageChannel_2" append-newline="true" />
-    <int-stream:stdout-channel-adapter id="consumer2" channel="messageChannel_2" append-newline="true" />
+    <int:poller id="defaultPoller" default="true" max-messages-per-poll="5" fixed-rate="2000" />
 
-    <int:publish-subscribe-channel id="messageChannel_2" />
+    <int:channel id="messageChannel_2"/>
 
-    <int:poller id="defaultPoller" default="true" max-messages-per-poll="5" fixed-rate="200" />
-
-    <context:property-placeholder location="classpath:application.properties"/>
+    <context:property-placeholder location="classpath:application.properties" />
 </beans>
