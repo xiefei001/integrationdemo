@@ -13,7 +13,6 @@ public class Startup {
 	public static void main(String[] args) throws InterruptedException {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("lab2/content.xml");
 		while (true) {
-			Thread.sleep(10000);
 		}
 	}
 }
