@@ -13,7 +13,7 @@ import org.springframework.messaging.support.MessageBuilder;
  */
 public class App {
 	public static void main(String[] args) throws InterruptedException {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("context.xml");
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("lab1/context.xml");
 		MessageChannel channel = ctx.getBean("messageChannel", MessageChannel.class);
 		int index = 0;
 		while(true) {
